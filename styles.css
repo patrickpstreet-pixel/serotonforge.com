@@ -1,0 +1,34 @@
+:root {
+  --nb: #7AC6FF;
+  --fa: #FFD166;
+  --dm: #0E0F12;
+  --sg: #1B1E27;
+  --lc: #D0D5E4;
+  --rg: #7CF39B;
+}
+* { box-sizing: border-box; }
+html, body { margin:0; padding:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background: var(--dm); color: var(--lc); }
+a { color: var(--nb); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+header { position: sticky; top:0; background: rgba(14,15,18,0.8); backdrop-filter: blur(8px); border-bottom:1px solid var(--sg); }
+.nav { display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
+.brand { display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.3px; }
+.brand img { width:32px; height:32px; }
+nav a { margin-left: 18px; font-size: 14px; opacity:.95; }
+.btn { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border:1px solid var(--sg); border-radius:10px; background:#14161c; color:var(--lc); }
+.btn.primary { background: linear-gradient(135deg, var(--nb), var(--fa)); color:#0e0f12; border-color:transparent; font-weight:700; }
+.hero { padding:72px 0 48px; text-align:center; }
+.hero h1 { font-family: 'Space Grotesk', Inter, system-ui, sans-serif; font-size: clamp(36px, 5vw, 64px); line-height:1.05; margin: 12px 0 12px; }
+.hero p.sub { color:#aab3c7; font-size: clamp(16px, 2.4vw, 22px); margin: 8px 0 22px; }
+.hero .actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.hero .canvas-wrap { margin: 28px auto 0; max-width: 760px; border:1px solid var(--sg); border-radius:16px; background:#0c0e14; padding:10px; }
+#sparkDemo { width:100%; height:360px; display:block; border-radius:12px; background:#0b0d13; }
+.section { padding:48px 0; }
+.cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:16px; margin-top: 18px; }
+.card { background:#12141a; border:1px solid var(--sg); border-radius:14px; padding:16px; }
+.card h3 { margin:0 0 10px; font-size:18px; }
+.showcase img { width:100%; border-radius:12px; border:1px solid var(--sg); }
+footer { border-top:1px solid var(--sg); padding:24px 0; font-size:13px; color:#98a3b6; }
+.badges { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+small.muted { color:#8e97a8; }
