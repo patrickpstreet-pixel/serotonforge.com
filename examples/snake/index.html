@@ -1,15 +1,17 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Snake — Example</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="style.css">
-</head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Snake</title>
+<link rel="stylesheet" href="../../styles.css"></head>
 <body>
-  <h1>Snake — Example</h1>
-  <p>Use arrow keys to move. Press Space to restart.</p>
-  <canvas id="game" width="400" height="400"></canvas>
-  <script src="game.js"></script>
+<main class="container">
+  <h1>Snake</h1>
+  <canvas id="c" style="width:100%;height:360px;background:#071018;border-radius:12px;"></canvas>
+  <p>Use arrow keys to move. <a href="../">Back</a></p>
+</main>
+<script>
+const canvas=document.getElementById('c');const ctx=canvas.getContext('2d');const DPR=window.devicePixelRatio||1;function sz(){const r=canvas.getBoundingClientRect();canvas.width=Math.floor(r.width*DPR);canvas.height=Math.floor(r.height*DPR);}window.addEventListener('resize',sz);sz();
+let grid=20;let cols=Math.floor(canvas.width/grid),rows=Math.floor(canvas.height/grid);let snake=[{x:Math.floor(cols/2),y:Math.floor(rows/2)}];let dir={x:1,y:0};let food={x:Math.floor(Math.random()*cols),y:Math.floor(Math.random()*rows)};let alive=true;function loop(){ctx.fillStyle='#071018';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.fillStyle='#7AC6FF';for(let s of snake){ctx.fillRect(s.x*grid,s.y*grid,grid-2,grid-2);}ctx.fillStyle='#FFD166';ctx.fillRect(food.x*grid,food.y*grid,grid-2,grid-2);}function step(){if(!alive)return;let head={x:snake[0].x+dir.x,y:snake[0].y+dir.y};if(head.x<0||head.x>=cols||head.y<0||head.y>=rows){alive=false;return;}for(let s of snake){if(s.x===head.x&&s.y===head.y){alive=false;return;}}snake.unshift(head);if(head.x===food.x&&head.y===food.y){food={x:Math.floor(Math.random()*cols),y:Math.floor(Math.random()*rows)};} else snake.pop();}
+setInterval(step,120);setInterval(loop,40);window.addEventListener('keydown',e=>{if(e.key==='ArrowUp')dir={x:0,y:-1};if(e.key==='ArrowDown')dir={x:0,y:1};if(e.key==='ArrowLeft')dir={x:-1,y:0};if(e.key==='ArrowRight')dir={x:1,y:0};});
+</script>
 </body>
 </html>

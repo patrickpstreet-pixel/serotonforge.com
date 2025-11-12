@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dodge</title>
+<link rel="stylesheet" href="../../styles.css"></head>
+<body>
+<main class="container">
+  <h1>Dodge</h1>
+  <canvas id="d" style="width:100%;height:360px;background:#071018;border-radius:12px;"></canvas>
+  <p>Move with arrow keys. <a href="../">Back</a></p>
+</main>
+<script>
+const d=document.getElementById('d');const dc=d.getContext('2d');const DPR=window.devicePixelRatio||1;function sd(){const b=d.getBoundingClientRect();d.width=Math.floor(b.width*DPR);d.height=Math.floor(b.height*DPR);}window.addEventListener('resize',sd);sd();let px=d.width/2,py=d.height-40;let objs=[];function addo(){objs.push({x:Math.random()*(d.width-20),y:-20,vy:2+Math.random()*3});}setInterval(addo,700);window.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')px-=30;if(e.key==='ArrowRight')px+=30;});function loop(){dc.fillStyle='#071018';dc.fillRect(0,0,d.width,d.height);dc.fillStyle='#FFD166';dc.fillRect(px-12,py-12,24,24);for(let o of objs){o.y+=o.vy;dc.fillStyle='#7AC6FF';dc.fillRect(o.x,o.y,18,18);}objs=objs.filter(o=>o.y<d.height+20);requestAnimationFrame(loop);}loop();
+</script>
+</body>
+</html>

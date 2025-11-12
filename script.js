@@ -5,15 +5,14 @@ if (canvas) {
   const DPR = Math.max(1, window.devicePixelRatio || 1);
 
   function resize(){
-    // If computed height is zero (no CSS set), give a reasonable fallback.
-    let rect = canvas.getBoundingClientRect();
+    const rect = canvas.getBoundingClientRect();
     if (rect.width === 0 || rect.height === 0) {
       canvas.style.width = canvas.style.width || '100%';
       canvas.style.height = canvas.style.height || '360px';
-      rect = canvas.getBoundingClientRect();
     }
-    canvas.width = Math.floor(rect.width * DPR);
-    canvas.height = Math.floor(rect.height * DPR);
+    const newRect = canvas.getBoundingClientRect();
+    canvas.width = Math.floor(newRect.width * DPR);
+    canvas.height = Math.floor(newRect.height * DPR);
   }
 
   window.addEventListener('resize', resize);

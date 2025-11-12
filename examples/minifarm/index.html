@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MiniFarm</title>
+<link rel="stylesheet" href="../../styles.css"></head>
+<body>
+<main class="container">
+  <h1>MiniFarm</h1>
+  <div id="plant" style="width:120px;height:120px;background:#2e7d32;border-radius:8px;"></div>
+  <p><button id="water">Water</button> <span id="status">Dry</span></p>
+  <p><a href="../">Back</a></p>
+</main>
+<script>
+let growth=0;const status=document.getElementById('status');const plant=document.getElementById('plant');document.getElementById('water').addEventListener('click',()=>{growth++;plant.style.height=120+growth*10+'px';status.textContent='Growing';setTimeout(()=>status.textContent='Ready',1200);});
+</script>
+</body>
+</html>
