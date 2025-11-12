@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Runner</title>
+<link rel="stylesheet" href="../../styles.css"></head>
+<body>
+<main class="container">
+  <h1>Runner</h1>
+  <canvas id="r" style="width:100%;height:200px;background:#071018;border-radius:12px;"></canvas>
+  <p>Space to jump. <a href="../">Back</a></p>
+</main>
+<script>
+const r=document.getElementById('r');const rc=r.getContext('2d');const DPR=window.devicePixelRatio||1;function rs(){const b=r.getBoundingClientRect();r.width=Math.floor(b.width*DPR);r.height=Math.floor(b.height*DPR);}window.addEventListener('resize',rs);rs();let x=80,y=r.height-40,vy=0,gr=1;let obs=[{x:r.width, w:24}];function add(){obs.push({x:r.width, w:24});}setInterval(add,1400);window.addEventListener('keydown',e=>{if(e.code==='Space'&&y>=r.height-40)vy=-18;});function loop(){rc.fillStyle='#071018';rc.fillRect(0,0,r.width,r.height);vy+=gr;y+=vy;if(y>r.height-40)y=r.height-40,vy=0;rc.fillStyle='#FFD166';rc.fillRect(x,y-24,24,24);for(let o of obs){o.x-=6;rc.fillStyle='#7AC6FF';rc.fillRect(o.x,r.height-24,o.w,24);}obs=obs.filter(o=>o.x> -50);requestAnimationFrame(loop);}loop();
+</script>
+</body>
+</html>

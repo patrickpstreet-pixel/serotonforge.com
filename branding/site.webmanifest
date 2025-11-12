@@ -1,15 +1,9 @@
 {
   "name": "Seroton Forge",
-  "short_name": "SerotonForge",
-  "icons": [
-    {
-      "src": "./branding/favicon.svg",
-      "sizes": "64x64",
-      "type": "image/svg+xml"
-    }
-  ],
+  "short_name": "Seroton",
+  "icons": [{"src":"/branding/favicon.svg","sizes":"any","type":"image/svg+xml"}],
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0E0F12",
-  "theme_color": "#0E0F12"
+  "theme_color": "#0E0F12",
+  "background_color": "#0b0d13"
 }

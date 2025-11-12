@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Breakout</title>
+<link rel="stylesheet" href="../../styles.css"></head>
+<body>
+<main class="container">
+  <h1>Breakout</h1>
+  <canvas id="b" style="width:100%;height:360px;background:#071018;border-radius:12px;"></canvas>
+  <p><a href="../">Back</a></p>
+</main>
+<script>
+const b=document.getElementById('b'),bc=b.getContext('2d');const DPR=window.devicePixelRatio||1;function sb(){const r=b.getBoundingClientRect();b.width=Math.floor(r.width*DPR);b.height=Math.floor(r.height*DPR);}window.addEventListener('resize',sb);sb();let px=b.width/2-40,py=b.height-30,pw=80;let ball={x:b.width/2,y:b.height/2,vx:3,vy:-3,r:8};function loop(){bc.fillStyle='#071018';bc.fillRect(0,0,b.width,b.height);bc.fillStyle='#FFD166';bc.fillRect(px,py,pw,10);bc.beginPath();bc.arc(ball.x,ball.y,ball.r,0,Math.PI*2);bc.fill();ball.x+=ball.vx;ball.y+=ball.vy;if(ball.x<ball.r||ball.x>b.width-ball.r)ball.vx*=-1;if(ball.y<ball.r)ball.vy*=-1;if(ball.y>py && ball.x>px && ball.x<px+pw){ball.vy*=-1;}if(ball.y>b.height)ball.x=b.width/2,ball.y=b.height/2;requestAnimationFrame(loop);}window.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();px=(e.clientX-r.left)*DPR-pw/2;});loop();
+</script>
+</body>
+</html>

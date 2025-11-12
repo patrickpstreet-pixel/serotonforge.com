@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PetGrow</title>
+<link rel="stylesheet" href="../../styles.css"></head>
+<body>
+<main class="container">
+  <h1>PetGrow</h1>
+  <div style="display:flex;align-items:center;gap:20px;">
+    <div id="pet" style="width:120px;height:120px;background:#FFD166;border-radius:50%;"></div>
+    <div>
+      <p>Happiness: <span id="h">0</span></p>
+      <button id="feed">Feed</button>
+    </div>
+  </div>
+  <p><a href="../">Back</a></p>
+</main>
+<script>
+let h=0;const el=document.getElementById('h');const pet=document.getElementById('pet');document.getElementById('feed').addEventListener('click',()=>{h++;el.textContent=h;pet.style.transform='scale('+(1+Math.min(0.6,h*0.05))+')';});
+</script>
+</body>
+</html>
