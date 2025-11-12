@@ -7,7 +7,7 @@
   <meta name="description" content="Seroton Forge is a fast, modular JS game engine for microgames. Prototype at the speed of thought.">
   <meta property="og:title" content="Seroton Forge">
   <meta property="og:description" content="Where ideas are forged into play.">
-  <meta property="og:image" content="/branding/og-image.png">
+  <meta property="og:image" content="./branding/og-image.svg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://serotonforge.com/">
   <meta name="twitter:card" content="summary_large_image">
@@ -15,10 +15,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-  <link rel="icon" href="/branding/favicon.ico" sizes="any">
-  <link rel="icon" href="/branding/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/branding/apple-touch-icon.png">
-  <link rel="manifest" href="/branding/site.webmanifest">
+  <link rel="icon" href="./branding/favicon.svg" sizes="any">
+  <link rel="icon" href="./branding/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./branding/apple-touch-icon.svg">
+  <link rel="manifest" href="./branding/site.webmanifest">
   <meta name="theme-color" content="#0E0F12">
 
   <link rel="stylesheet" href="./styles.css">
@@ -27,7 +27,7 @@
   <header>
     <div class="container nav">
       <div class="brand">
-        <img src="./branding/logo-original.png" alt="Seroton Forge emblem" style="height:48px;width:auto;">
+        <img src="./branding/logo-original.svg" alt="Seroton Forge emblem" style="height:48px;width:auto;">
         <span>Seroton <span style="color:#FFD166">Forge</span></span>
       </div>
       <nav>
@@ -40,17 +40,20 @@
 
   <main>
     <section class="hero container">
-      <img src="./branding/logo-original.png" alt="Seroton Forge logo" width="200" height="200" style="margin-bottom:12px;">
+      <img src="./branding/logo-original.svg" alt="Seroton Forge logo" width="200" height="200" style="margin-bottom:12px;">
       <h1>
         Seroton<span style="color:#FFD166">Forge</span>
       </h1>
       <p class="sub">Where ideas are forged into play.</p>
       <div class="actions">
-        <a class="btn primary" href="#" id="getEngineBtn">Get the Engine</a>
+        <!-- Get the Engine points to downloadable archive of the site repo as a placeholder; replace with engine repo or release URL when available -->
+        <a class="btn primary" href="https://github.com/patrickpstreet-pixel/serotonforge.com/archive/refs/heads/main.zip" id="getEngineBtn" download>Get the Engine</a>
         <a class="btn" href="#features">Explore Features</a>
       </div>
+
       <div class="canvas-wrap">
-        <canvas id="sparkDemo" aria-label="Seroton Forge emblem animation"></canvas>
+        <!-- Provide an explicit layout height so the canvas is visible immediately. script.js will resize the drawing buffer. -->
+        <canvas id="sparkDemo" aria-label="Seroton Forge emblem animation" style="width:100%;height:360px;"></canvas>
       </div>
     </section>
 
@@ -78,10 +81,11 @@
 
     <section id="showcase" class="section container showcase">
       <h2>Showcase</h2>
-      <p>Snake • Clicker • Flappy • Runner • Dodge • 2048 • Breakout • PetGrow • MiniFarm • AstroMiner</p>
-      <img src="./branding/og-image.png" alt="Seroton Forge game montage">
+      <p>
+        <a href="./examples/snake/">Snake</a> • <a href="./examples/clicker/">Clicker</a> • <a href="./examples/flappy/">Flappy</a> • Runner • Dodge • 2048 • Breakout • PetGrow • MiniFarm • AstroMiner
+      </p>
+      <img src="./branding/og-image.svg" alt="Seroton Forge game montage">
       <div class="badges" style="margin-top:12px;">
-        <!-- Optionally, you can add badges here if generated -->
       </div>
     </section>
 
@@ -89,7 +93,7 @@
       <h2>Get started in minutes</h2>
       <p>Download the engine template, unzip in VS Code, and run with a local server. Build a new microgame today.</p>
       <div class="actions">
-        <a class="btn primary" href="#" id="downloadBtn">Download</a>
+        <a class="btn primary" href="https://github.com/patrickpstreet-pixel/serotonforge.com/archive/refs/heads/main.zip" id="downloadBtn" download>Download</a>
         <a class="btn" href="mailto:hello@serotonforge.com">Contact</a>
       </div>
       <p><small class="muted">Docs and examples coming soon.</small></p>
@@ -100,7 +104,7 @@
     <div class="container">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
         <div class="badges" style="display:flex;align-items:center;gap:10px;">
-          <img src="./branding/logo-original.png" alt="Made with Seroton Forge" height="36" style="border-radius:8px;background:#14171A;padding:4px;">
+          <img src="./branding/logo-original.svg" alt="Made with Seroton Forge" height="36" style="border-radius:8px;background:#14171A;padding:4px;">
           <small class="muted">Made with Seroton Forge &mdash; Where ideas are forged into play.</small>
         </div>
         <small>© 2025 Seroton Forge</small>
@@ -109,10 +113,5 @@
   </footer>
 
   <script src="./script.js"></script>
-  <script>
-    // Wire CTA buttons; replace '#' with your repo or download links later
-    document.getElementById('getEngineBtn').addEventListener('click', function(e){ e.preventDefault(); window.location.href = '#'; });
-    document.getElementById('downloadBtn').addEventListener('click', function(e){ e.preventDefault(); window.location.href = '#'; });
-  </script>
 </body>
 </html>

@@ -3,12 +3,22 @@ const canvas = document.getElementById('sparkDemo');
 if (canvas) {
   const ctx = canvas.getContext('2d');
   const DPR = Math.max(1, window.devicePixelRatio || 1);
+
   function resize(){
-    const rect = canvas.getBoundingClientRect();
+    // If computed height is zero (no CSS set), give a reasonable fallback.
+    let rect = canvas.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) {
+      canvas.style.width = canvas.style.width || '100%';
+      canvas.style.height = canvas.style.height || '360px';
+      rect = canvas.getBoundingClientRect();
+    }
     canvas.width = Math.floor(rect.width * DPR);
     canvas.height = Math.floor(rect.height * DPR);
   }
-  window.addEventListener('resize', resize); resize();
+
+  window.addEventListener('resize', resize);
+  window.addEventListener('load', resize);
+  resize();
 
   let t = 0;
   function loop(){
